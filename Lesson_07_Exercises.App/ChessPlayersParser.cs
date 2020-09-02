@@ -75,31 +75,31 @@ namespace Lesson_07_Exercises.App
 
         public IEnumerable<ChessPlayer> GetChessPlayersOlderThanSpecifiedAge(int ageInYears)
         {
-            IEnumerable<ChessPlayer> playersOlderThanSpecifiedAge = chessPlayers
+            var playersOlderThanSpecifiedAge = chessPlayers
                 .Where(n => n.AgeInYears > ageInYears);
             return playersOlderThanSpecifiedAge;
         }
 
         public IEnumerable<ChessPlayer> GetChessPlayersInEloRatingRange(int minEloRating, int maxEloRating)
         {
-            IEnumerable<ChessPlayer> playersInEloRatingRange = chessPlayers
+            var playersInEloRatingRange = chessPlayers
                 .Where(n => n.EloRating >= minEloRating && n.EloRating <= maxEloRating);
             return playersInEloRatingRange;
         }
 
         public IEnumerable<ChessPlayer> GetChessPlayersOlderThanSpecifiedAgeFromSpecifiedCoutry(int ageInYears, Country country)
         {
-            IEnumerable<ChessPlayer> playersOlderThanSpecifiedAgeFromSpecifiedCoutry = chessPlayers
+            var playersOlderThanSpecifiedAgeFromSpecifiedCoutry = chessPlayers
                 .Where(n => n.AgeInYears > ageInYears && n.Country == country);
             return playersOlderThanSpecifiedAgeFromSpecifiedCoutry;
         }
 
         public IEnumerable<IGrouping<Country, ChessPlayer>> GetChessPlayersWithHigherOrEqualEloRatingGroupedByCountry(int minEloRating, Country country)
         {
-            IEnumerable<IGrouping<Country, ChessPlayer>> playersOlderThanSpecifiedAgeFromSpecifiedCoutry = chessPlayers
+            var playersWithHigherOrEqualEloRatingGroupedByCountry = chessPlayers
                 .Where(n => n.EloRating >= minEloRating)
                 .GroupBy(n => n.Country);
-            return playersOlderThanSpecifiedAgeFromSpecifiedCoutry;
+            return playersWithHigherOrEqualEloRatingGroupedByCountry;
         }
     }
 }
