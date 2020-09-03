@@ -29,7 +29,7 @@ namespace Lesson_07_Exercises.App
             new ChessPlayer
             {
                 FirstName = "Mi",
-                LastName = "Yang ",
+                LastName = "Yang",
                 Birthdate = new DateTime(1986, 09, 12),
                 EloRating = 3113,
                 ThisYearTrainingTime = new TimeSpan(911, 11, 3),
@@ -76,29 +76,29 @@ namespace Lesson_07_Exercises.App
         public IEnumerable<ChessPlayer> GetChessPlayersOlderThanSpecifiedAge(int ageInYears)
         {
             var playersOlderThanSpecifiedAge = chessPlayers
-                .Where(n => n.AgeInYears > ageInYears);
+                .Where(p => p.AgeInYears > ageInYears);
             return playersOlderThanSpecifiedAge;
         }
 
         public IEnumerable<ChessPlayer> GetChessPlayersInEloRatingRange(int minEloRating, int maxEloRating)
         {
             var playersInEloRatingRange = chessPlayers
-                .Where(n => n.EloRating >= minEloRating && n.EloRating <= maxEloRating);
+                .Where(p => p.EloRating >= minEloRating && p.EloRating <= maxEloRating);
             return playersInEloRatingRange;
         }
 
         public IEnumerable<ChessPlayer> GetChessPlayersOlderThanSpecifiedAgeFromSpecifiedCoutry(int ageInYears, Country country)
         {
             var playersOlderThanSpecifiedAgeFromSpecifiedCoutry = chessPlayers
-                .Where(n => n.AgeInYears > ageInYears && n.Country == country);
+                .Where(p => p.AgeInYears > ageInYears && p.Country == country);
             return playersOlderThanSpecifiedAgeFromSpecifiedCoutry;
         }
 
         public IEnumerable<IGrouping<Country, ChessPlayer>> GetChessPlayersWithHigherOrEqualEloRatingGroupedByCountry(int minEloRating, Country country)
         {
             var playersWithHigherOrEqualEloRatingGroupedByCountry = chessPlayers
-                .Where(n => n.EloRating >= minEloRating)
-                .GroupBy(n => n.Country);
+                .Where(p => p.EloRating >= minEloRating)
+                .GroupBy(p => p.Country);
             return playersWithHigherOrEqualEloRatingGroupedByCountry;
         }
     }
